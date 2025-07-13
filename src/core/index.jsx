@@ -8,7 +8,7 @@ function App() {
     {
       path:"/",
       element:<Login/>,
-      errorElement:<div>error 404</div>
+      errorElement:<div>error 405</div>
     },
     {
       path:"/login",
