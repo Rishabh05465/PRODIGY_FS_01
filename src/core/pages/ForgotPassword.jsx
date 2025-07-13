@@ -1,6 +1,11 @@
-import React from 'react'
+import {useNavigate} from "react-router-dom"
+import Button from '../atoms/Button'
 
 export default function ForgotPassword() {
+    const navigate = useNavigate(); 
+    const clickHandler = () => {
+        navigate('/login')
+    }
   return (
     <>
     <div className='login'>
@@ -15,8 +20,8 @@ export default function ForgotPassword() {
                 <input type="text" placeholder='Enter your Password' />
             </div>
             <div className='btn-grp'>
-                <span className='button'>Apply</span>
-                <span className='button_warning'>Cancel</span>
+                <Button label="Apply" css="button"/>
+                <Button label="Cancel" css="button_warning" callback={()=> clickHandler()} />
             </div>           
         </section>
     </div>

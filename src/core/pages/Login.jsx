@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom' 
+import Button from '../atoms/Button';
 
 export default function Login() {
     const [username, setUserName] = useState("");
@@ -33,9 +34,7 @@ export default function Login() {
             <div className='fgp'>
                 <Link to={"/forgot_password"}>forgot password?</Link>
             </div>
-            <div className='btn'>
-                <span className='button'>Login</span>
-            </div>
+            <Button label="Login" css="button" />
             <p className='text_sm'>Don't have an account? <Link to ={"/registration"}>Sign in</Link> </p>              
         </section>
     </div>

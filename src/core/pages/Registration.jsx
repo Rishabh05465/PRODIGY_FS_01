@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Button from '../atoms/Button'
 
 export default function Registration() {
   return (
@@ -19,9 +20,7 @@ export default function Registration() {
                 <label htmlFor="">Email ID</label>
                 <input type="text" placeholder='Enter your Email' />
             </div>
-            <div className='btn'>
-                <span className='button'>Sign in</span>
-            </div> 
+            <Button label="Sign In" css="button" />
             <p className='text_sm'>Already have an account? <Link to ={"/login"}>Login</Link> </p>          
         </section>
     </div>
