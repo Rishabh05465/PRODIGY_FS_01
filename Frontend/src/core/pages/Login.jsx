@@ -9,7 +9,7 @@ export default function Login() {
     
     const login = () => {
         axios
-            .post('http://localhost:8000/login',{name:username,password:password})
+            .post('http://localhost:8000/user/login',{name:username,password:password})
             .then(res => res.data) 
             .then(res => console.log(res));
     }
