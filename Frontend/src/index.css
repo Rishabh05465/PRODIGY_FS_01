@@ -101,3 +101,11 @@ a{
 .danger{
   border: 1px solid #ff8c8c;
 }
+.userinfo{
+  width: 100%;
+  text-align: center;
+  border: 1px solid #2979ff;
+}
+.userinfo tr, td, th{
+  border: 1px solid #2979ff;
+}

@@ -1,17 +1,26 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom' 
+import { Link, useNavigate } from 'react-router-dom' 
 import Button from '../atoms/Button';
 import axios from 'axios';
 
 export default function Login() {
-    const [username, setUserName] = useState("");
+    const [email, setemail] = useState("");
     const [password, setPassword] = useState("");  
+    const navigate = useNavigate();
     
     const login = () => {
         axios
-            .post('http://localhost:8000/user/login',{name:username,password:password})
+            .post('http://localhost:8000/user/login',{email:email,password:password})
             .then(res => res.data) 
-            .then(res => console.log(res));
+            .then(res => {
+                if(!res.error){
+                    sessionStorage.setItem("token", res.token);
+                    navigate('/user')
+                }else{
+                    console.log(res.error)
+                }
+                
+            })
     }
    
   return (
@@ -20,13 +29,13 @@ export default function Login() {
         <section className='box'>
             <h4>Login</h4>
             <div className='uid'>
-                <label htmlFor="">Username</label>
+                <label htmlFor="">Email</label>
                 <input type="text" 
-                value={username}
-                placeholder='Enter your username'                
-                onChange={ (e)=> setUserName(e.target.value)} />                
-                {username.length > 20 && (
-                <div className="error">Name should be 3 to 20 char</div>
+                value={email}
+                placeholder='Enter your email'                
+                onChange={ (e)=> setemail(e.target.value)} />                
+                {email.length > 20 && (
+                <div className="error">email should be 3 to 20 char</div>
                 )}
             </div>
             <div className='uid2'>

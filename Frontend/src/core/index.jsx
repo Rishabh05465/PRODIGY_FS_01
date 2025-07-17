@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import ForgotPassword from "./pages/ForgotPassword"
 import Login from "./pages/Login"
 import Registration from "./pages/Registration"
+import User from "./pages/User"
+import ProtectedRoute from "./molecules/ProtectedRoute"
 
 function App() {
   const router = createBrowserRouter([
@@ -23,6 +25,15 @@ function App() {
     {
       path:"/forgot_password",
       element:<ForgotPassword/>,
+      errorElement:<div>error 404</div>
+    },
+    {
+      path:"/user",
+      element:(
+        <ProtectedRoute>
+          <User/>
+        </ProtectedRoute>
+      ),
       errorElement:<div>error 404</div>
     }
   ])
